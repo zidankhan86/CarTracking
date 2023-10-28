@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -29,7 +29,6 @@ use Illuminate\Support\Facades\Route;
 
 //Pages
 Route::get('/',[FrontendHomeController::class,'index'])->name('home');
-Route::get('/blog',[BlogController::class,'index'])->name('blog');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::get('/category',[CategoryController::class,'index'])->name('category');
@@ -57,10 +56,11 @@ Route::post('/update-password/{id}',[ChangePasswordController::class,'update'])-
 Route::get('/user-list',[AuthController::class,'list'])->name('user.list');
 Route::get('/category-list',[CategoryController::class,'list'])->name('category.list');
 Route::get('/category-form',[CategoryController::class,'form'])->name('category.form');
-Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
-Route::get('/blog-form',[BlogController::class,'form'])->name('blog.form');
+Route::get('/device-list',[DeviceController::class,'list'])->name('device.list');
+Route::get('/device-form',[DeviceController::class,'form'])->name('device.form');
 //profile
 Route::get('/profile',[ProfileController::class,'index'])->name('profile');
 //post
 Route::post('/registration/update{id}',[RegistrationController::class,'update'])->name('registration.update');
+Route::post('/category-store',[CategoryController::class,'store'])->name('category.store');
 });
