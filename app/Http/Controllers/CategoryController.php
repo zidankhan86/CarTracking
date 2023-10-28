@@ -44,7 +44,8 @@ class CategoryController extends Controller
             return back()->withSuccess(['success' => 'Category Create Success!']);
              }
         catch (\Exception $e) {
-            return back()->withErrors(['error' => 'Category creation failed: ' . $e->getMessage()]);
+            toastr()->error('Category Create Failed , Choose another name');
+            return back()->withErrors(['error' => 'Category creation failed:']);
             }
 
     }
