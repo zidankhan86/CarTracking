@@ -63,4 +63,5 @@ Route::get('/profile',[ProfileController::class,'index'])->name('profile');
 //post
 Route::post('/registration/update{id}',[RegistrationController::class,'update'])->name('registration.update');
 Route::post('/category-store',[CategoryController::class,'store'])->name('category.store');
+Route::post('/device-store',[DeviceController::class,'store'])->name('device.store');
 });

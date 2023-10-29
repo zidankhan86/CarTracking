@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('price');
+            $table->foreignId('category_id');
+            $table->string('monthly_charge');
+            $table->string('image');
+            $table->string('status');
+            $table->text('description');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Device;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class DeviceController extends Controller
      */
     public function form()
     {
-        return view('backend.pages.deviceForm');
+        $devices = Category::all();
+        return view('backend.pages.deviceForm',compact('devices'));
     }
 
     /**
@@ -28,7 +30,33 @@ class DeviceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'price' => 'required|numeric',
+            'monthly_charge' => 'required|numeric',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'status' => 'required',
+            'description' => 'required',
+        ]);
+
+        $imageName = null;
+
+        if ($request->hasFile('image')) {
+            $imageName = date('Ymdhis'). '.' . $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('uploads', $imageName, 'public');
+        }
+
+        Device::create([
+            "title" => $request->title,
+            "price" => $request->price,
+            "category_id" => $request->category_id,
+            "monthly_charge" => $request->monthly_charge,
+            "image" => $imageName,
+            "status" => $request->status,
+            "description" => $request->description,
+        ]);
+
+        return redirect()->back()->withSuccess('Device added successfully.');
     }
 
     /**
