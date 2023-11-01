@@ -8,17 +8,21 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    //Backend
     public function form()
     {
        return view('backend.pages.categoryForm');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
+    //Frontend
+    public function index()
+    {
+       return view('frontend.pages.category');
+    }
+
+
     public function create()
     {
         //

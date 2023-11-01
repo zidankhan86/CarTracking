@@ -13,7 +13,7 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        return view('frontend\pages\home');
+       return view('frontend.pages.device');
     }
 
     /**
@@ -31,30 +31,38 @@ class DeviceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|string',
             'price' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id',
             'monthly_charge' => 'required|numeric',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'status' => 'required',
-            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Modify file validation as needed
+            'status' => 'required|in:0,1',
+            'description' => 'required|string',
+            'features' => 'array|nullable', // Allow an array of features
         ]);
 
-        $imageName = null;
-
+        // Handle image upload
         if ($request->hasFile('image')) {
-            $imageName = date('Ymdhis'). '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('uploads', $imageName, 'public');
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('images', $imageName, 'public');
+        } else {
+            $imageName = null;
         }
 
-        Device::create([
-            "title" => $request->title,
-            "price" => $request->price,
-            "category_id" => $request->category_id,
-            "monthly_charge" => $request->monthly_charge,
-            "image" => $imageName,
-            "status" => $request->status,
-            "description" => $request->description,
+        // Create the device
+        $device = new Device([
+            'title' => $request->input('title'),
+            'price' => $request->input('price'),
+            'category_id' => $request->input('category_id'),
+            'monthly_charge' => $request->input('monthly_charge'),
+            'image' => $imageName,
+            'status' => $request->input('status'),
+            'description' => $request->input('description'),
+            'features' => json_encode($request->input('features'))
         ]);
+
+        $device->save();
 
         return redirect()->back()->withSuccess('Device added successfully.');
     }
@@ -94,5 +102,17 @@ class DeviceController extends Controller
     public function list()
     {
         return view('backend.pages.deviceList');
+    }
+
+    public function FeaturesForm()
+    {
+        //$devices = Category::all();
+        return view('backend.pages.deviceForm',compact('devices'));
+    }
+
+    public function FeaturesList()
+    {
+        //$devices = Category::all();
+        return view('backend.pages.deviceForm',compact('devices'));
     }
 }

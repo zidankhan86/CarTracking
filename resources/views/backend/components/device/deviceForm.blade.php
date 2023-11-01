@@ -54,6 +54,21 @@
             </div>
 
           </div>
+          <div class="mb-3">
+            <label class="form-label">Select Features</label>
+            <select name="features[]" class="form-control" multiple>
+                <option value="0">Real-Time Tracking</option>
+                <option value="1">Vehicle Status</option>
+                <option value="2">Geofencing</option>
+                <option value="3">Basic GPS Report</option>
+                <option value="4">Device Removal Alert</option>
+                <option value="5">Over Speeding Alert</option>
+                <option value="6">Trip History</option>
+                <option value="7">Daily Summary Report</option>
+                <option value="8">24x7 Help Line Support</option>
+            </select>
+        </div>
+
 
           <div class="col-md-12">
             <div class="mb-3 mb-0">

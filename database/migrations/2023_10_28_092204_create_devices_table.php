@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('status');
             $table->text('description');
+            $table->json('features')->nullable();
             $table->timestamps();
         });
     }
