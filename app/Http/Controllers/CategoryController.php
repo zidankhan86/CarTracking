@@ -11,9 +11,9 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function form()
     {
-       return view('frontend.pages.category');
+       return view('backend.pages.categoryForm');
     }
 
     /**
@@ -30,25 +30,32 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         try {
-             $request->validate([
-                'type_name'     => 'required|string',
-                'status'        => 'required',
+            $request->validate([
+                'type_name' => 'required|string',
+                'status' => 'required',
+                'image' => 'nullable|image' // Add validation for image file
             ]);
 
+            $image = null;
+
+            if ($request->hasFile('image')) {
+                $image = date('YmdHis') . '.' . $request->file('image')->getClientOriginalExtension();
+                $request->file('image')->storeAs('uploads', $image, 'public');
+            }
+
             Category::create([
-                "type_name"     => $request->type_name,
-                "status"        => $request->status,
-                "slug"          => Str::slug($request['type_name']),
+                "type_name" => $request->type_name,
+                "status" => $request->status,
+                "slug" => Str::slug($request['type_name']),
+                "image" => $image
             ]);
 
             return back()->withSuccess(['success' => 'Category Create Success!']);
-             }
-        catch (\Exception $e) {
-            toastr()->error('Category Create Failed , Choose another name');
-            return back()->withErrors(['error' => 'Category creation failed:']);
-            }
-
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'Failed: ' . $e->getMessage()]);
+        }
     }
+
 
     /**
      * Display the specified resource.
@@ -86,8 +93,5 @@ class CategoryController extends Controller
        return view('backend.pages.categoryList');
     }
 
-    public function form()
-    {
-       return view('backend.pages.categoryForm');
-    }
+
 }

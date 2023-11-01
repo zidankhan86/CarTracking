@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col-12">
-        <form action="{{ route('category.store') }}" method="post">
+        <form action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <h3 class="card-title">Category Form</h3>
@@ -13,6 +13,14 @@
                                 <p class="text-danger">{{ $errors->first('type_name') }}</p>
                             @endif
                         </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Choose File</label>
+                            <input type="file" name="image" class="form-control" >
+
+                        </div>
+
+
                         <div class="mb-3">
                             <label class="form-label">Status</label>
                             <select name="status" class="form-control">
