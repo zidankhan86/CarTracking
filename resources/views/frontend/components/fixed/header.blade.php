@@ -15,24 +15,30 @@
                     <ul>
                         <li class="active"><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('category') }}">vehicles</a>
-                            <ul class="dropdown">
-                                <li><a href="./Project-details.html">Project Details</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="./services.html">Services</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                            </ul>
+
                         </li>
                         <li><a href="{{ route('device.page') }}">Product</a></li>
                         <li><a href="{{ route('about') }}">About</a></li>
 
+                        @auth
+                        @if (auth()->user()->role == 'customer')
+
+                        <li><a href="{{ route('logout') }}" style="color: red">Logout</a></li>
+                        <li><a href="{{ route('user.profile') }}">{{ auth()->user()->name }}</a></li>
+
+                        @endauth
+                        @else
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('registration') }}">Register</a></li>
+
+                        @endif
+
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__widget">
-                   
+
                     <a href="{{ route('view.cart') }}" class="btn btn-warning">
                         <i class="fas fa-shopping-cart"></i> <strong>{{ session()->has('cart') ? count(session()->get('cart')) : 0 }}</strong>
                     </a>

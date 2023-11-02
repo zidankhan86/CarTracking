@@ -49,8 +49,8 @@ Route::get('/category',[CategoryController::class,'index'])->name('category');
 Route::get('/category/device/{id}',[CategoryController::class,'CategoryWise'])->name('category.wise.device');
 Route::get('/device-page',[DeviceController::class,'index'])->name('device.page');
 Route::get('/device-details/{id}',[DeviceController::class,'details'])->name('details');
-
-
+Route::get('/device-latest',[DeviceController::class,'latest'])->name('latest');
+Route::get('/user-profile',[TestController::class,'Profile'])->name('user.profile');
 //Auth
 Route::get('/login',[AuthController::class,'index'])->name('login');
 Route::post('/store',[AuthController::class,'store'])->name('store');

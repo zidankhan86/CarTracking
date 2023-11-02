@@ -123,6 +123,14 @@ class DeviceController extends Controller
        return view('frontend.pages.details',compact('devices'));
     }
 
-    
+    public function latest()
+    {
+        $devices = Device::latest()->limit(3)->get();
+        Device::with('category')->where('type_name');
+
+       return view('frontend.pages.latestDevice',compact('devices'));
+    }
+
+
 
 }

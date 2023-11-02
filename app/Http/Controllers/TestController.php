@@ -15,4 +15,8 @@ class TestController extends Controller
     public function form(){
         return view('backend.pages.test');
     }
+
+    public function Profile(){
+        return view('frontend\pages\profile');
+    }
 }

@@ -5,8 +5,8 @@
             <div class="row">
                 <div class="col-lg-9 col-md-8 col-sm-6">
                     <div class="section-title">
-                        <span>Latest News</span>
-                        <h2>From our blog</h2>
+                        <span>Keep Update</span>
+                        <h2>Latest Device</h2>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
@@ -16,42 +16,26 @@
                 </div>
             </div>
             <div class="row">
+
+                @foreach ($devices as $item)
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="latest__item">
                         <div class="latest__item__pic">
-                            <img src="frontend/img/blog/latest-1.jpg" alt="">
+                            <img src={{ url('/uploads/', $item->image) }} alt="">
                         </div>
                         <div class="latest__item__text">
-                            <span>Architecture</span>
-                            <h4>Target and Amazon Shopping List for Home Stagers</h4>
-                            <a href="#">Read more</a>
+                            <span>{{ $item->category->type_name }}</span>
+                            <h4>{!! $item->title !!}</h4>
+                            <a href="{{ route('details',$item->id) }}">Read more</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="latest__item">
-                        <div class="latest__item__pic">
-                            <img src="frontend/img/blog/latest-2.jpg" alt="">
-                        </div>
-                        <div class="latest__item__text">
-                            <span>Interior</span>
-                            <h4>6 Ideas for Team Building and Employee Appreciation for Home Stagers</h4>
-                            <a href="#">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="latest__item">
-                        <div class="latest__item__pic">
-                            <img src="frontend/img/blog/latest-3.jpg" alt="">
-                        </div>
-                        <div class="latest__item__text">
-                            <span>Planning</span>
-                            <h4>How to Find the Best Price Structure for Your Home Staging Services</h4>
-                            <a href="#">Read more</a>
-                        </div>
-                    </div>
-                </div>
+
+                @endforeach
+
+
+
+
             </div>
         </div>
     </section>
