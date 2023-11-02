@@ -13,7 +13,8 @@ class DeviceController extends Controller
      */
     public function index()
     {
-       return view('frontend.pages.device');
+        $devices =Device::all();
+       return view('frontend.pages.device',compact('devices'));
     }
 
     /**
@@ -45,7 +46,7 @@ class DeviceController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('images', $imageName, 'public');
+            $image->storeAs('uploads', $imageName, 'public');
         } else {
             $imageName = null;
         }
@@ -115,4 +116,13 @@ class DeviceController extends Controller
         //$devices = Category::all();
         return view('backend.pages.deviceForm',compact('devices'));
     }
+
+    public function details($id)
+    {
+        $devices =Device::find($id);
+       return view('frontend.pages.details',compact('devices'));
+    }
+
+    
+
 }

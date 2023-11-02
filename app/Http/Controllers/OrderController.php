@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\frontend;
+namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Device;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function placeOrder($id)
     {
-        $devices =Device::all();
-        return view('frontend.pages.home',compact('devices'));
+        $devices =Device::find($id);
+       return view('frontend\components\paceOrder\placeOrder',compact('devices'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -36,7 +37,7 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Order $order)
     {
         //
     }
@@ -44,7 +45,7 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Order $order)
     {
         //
     }
@@ -52,7 +53,7 @@ class HomeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -60,7 +61,7 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Order $order)
     {
         //
     }

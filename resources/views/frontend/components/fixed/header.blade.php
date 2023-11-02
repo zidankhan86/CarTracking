@@ -1,3 +1,6 @@
+ <!-- Add this line to the head section of your HTML file -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
  <!-- Header Section Begin -->
  <header class="header">
     <div class="container-fluid">
@@ -29,8 +32,11 @@
             </div>
             <div class="col-lg-3">
                 <div class="header__widget">
-                    <span>Call us for any questions</span>
-                    <h4>+01 123 456 789</h4>
+                   
+                    <a href="{{ route('view.cart') }}" class="btn btn-warning">
+                        <i class="fas fa-shopping-cart"></i> <strong>{{ session()->has('cart') ? count(session()->get('cart')) : 0 }}</strong>
+                    </a>
+
                 </div>
             </div>
         </div>

@@ -1,18 +1,20 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ChangePasswordController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DeviceController;
-use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RegistrationController;
-use App\Http\Controllers\SettingController;
-use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AddToCartController;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,8 @@ Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::get('/category',[CategoryController::class,'index'])->name('category');
 Route::get('/device-page',[DeviceController::class,'index'])->name('device.page');
+Route::get('/device-details/{id}',[DeviceController::class,'details'])->name('details');
+Route::get('/order/{id}',[OrderController::class,'placeOrder'])->name('order');
 //Auth
 Route::get('/login',[AuthController::class,'index'])->name('login');
 Route::post('/store',[AuthController::class,'store'])->name('store');
@@ -40,6 +44,12 @@ Route::post('/store',[AuthController::class,'store'])->name('store');
 //Register
 Route::get('/registration',[RegistrationController::class,'index'])->name('registration');
 Route::post('/registration/store',[RegistrationController::class,'store'])->name('registration.store');
+
+//AddToCard
+Route::get('add-to-cart/{id}',[AddToCartController::class,'addToCart'])->name('add.to.cart');
+Route::get('/view-cart',[AddToCartController::class,'viewCart'])->name('view.cart');
+Route::get('/clear-cart',[AddToCartController::class,'clearCart'])->name('cart.clear');
+Route::get('/cart-item/delete/{id}',[AddToCartController::class,'cartItemDelete'])->name('cart.item.delete');
 
 //Backend
 

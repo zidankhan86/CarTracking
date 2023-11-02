@@ -1,5 +1,5 @@
  <!-- Breadcrumb Section Begin -->
- <div class="breadcrumb-option spad set-bg" data-setbg="frontend/img/breadcrumb-bg.jpg">
+ <div class="breadcrumb-option spad set-bg" data-setbg="{{asset ('frontend/img/breadcrumb-bg.jpg') }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
