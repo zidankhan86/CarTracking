@@ -15,18 +15,19 @@
     <div class="container mt-4">
         <div class="row">
             <!-- Left Column - Booking Form -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <!-- Booking Form -->
                 <form action="{{ route('pay.now',$devices->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <section class="order-form m-4">
                         <div class="container pt-4">
                             <div class="row">
-                                <div class="col-12 px-4">
+                                <div class="col-12 px-4 text-center">
                                     <h1>Buy filling up this form</h1>
                                     <span>with some explanation below</span>
-                                    <hr class="mt-1" />
+                                    <hr class="mt-1" style="width: 50%;">
                                 </div>
+
                                 <div class="col-12">
                                     <div class="row mx-4">
                                         <div class="col-md-6">
@@ -101,23 +102,7 @@
                 </form>
             </div>
 
-            <!-- Right Column - Static Card with Product Information -->
-            <div class="col-md-6"><br><br><br><br><br>
-                <!-- Static card with product information -->
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Price Information</h5>
-                        <hr>
-                        <p><strong>Product Name:</strong> </p>
-                        <p><strong>Subtotal:</strong>BDT  </p>
-                        <!-- Calculate total based on your logic -->
-                        <p><strong>Total: BDT  </strong> <!-- Calculate and display the total here --></p>
 
-                        <hr>
-                        <p><strong>To pay: BDT  </strong>
-                    </div>
-                </div> <br>
-            </div>
         </div>
     </div>
 </body>

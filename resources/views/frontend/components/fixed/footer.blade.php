@@ -8,14 +8,7 @@
                         <h2>Ready To Work With Us?</h2>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer__top__newslatter">
-                        <form action="#">
-                            <input type="text" placeholder="Enter your email...">
-                            <button type="submit"><i class="fa fa-send"></i></button>
-                        </form>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div class="row">
