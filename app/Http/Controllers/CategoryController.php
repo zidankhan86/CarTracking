@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Device;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class CategoryController extends Controller
     //Frontend
     public function index()
     {
-       return view('frontend.pages.category');
+        $categories = Category::all();
+       return view('frontend.pages.category',compact('categories'));
     }
 
 
@@ -95,6 +97,21 @@ class CategoryController extends Controller
     public function list()
     {
        return view('backend.pages.categoryList');
+    }
+
+
+    //Cat Wise Product
+    public function CategoryWise($id)
+    {
+
+
+        $devices = Device::where('category_id', $id)
+                          ->where('status', 1)
+                          ->get();
+
+
+        $categories =Device::find($id);
+       return view('frontend.pages.categoryWiseDevice',compact('devices','categories'));
     }
 
 

@@ -46,6 +46,7 @@ Route::get('/',[FrontendHomeController::class,'index'])->name('home');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::get('/category',[CategoryController::class,'index'])->name('category');
+Route::get('/category/device/{id}',[CategoryController::class,'CategoryWise'])->name('category.wise.device');
 Route::get('/device-page',[DeviceController::class,'index'])->name('device.page');
 Route::get('/device-details/{id}',[DeviceController::class,'details'])->name('details');
 
