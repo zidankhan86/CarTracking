@@ -31,8 +31,35 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            'name'=>'required',
+            'phone'=>'required',
+            'email'=>'required',
+
+
+        ]);
+
+        //dd($request->all());
+
+
+
+        Device::create([
+
+            "name"=>$request->name,
+            "tour_id"=>$request->tour_id,
+            "phone"=>$request->phone,
+            "email"=>$request->email,
+            "address"=>$request->address,
+            "price" =>$request->amount,
+            "currency" =>$request->currency,
+            "status"=>"Pending"
+
+        ]);
+        toastr()->success('Success ', 'Thank You For yor order ');
+        return to_route('home');
     }
+
 
     /**
      * Display the specified resource.

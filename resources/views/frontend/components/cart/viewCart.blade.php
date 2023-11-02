@@ -118,15 +118,18 @@
                                         </div>
                                         <button type="button" class="btn btn-info btn-block btn-lg">
                                             <div class="d-flex justify-content-between">
+
+                                                </span>
+
+                                            </div>
+                                            <div>
                                                 <span id="total">BDT
                                                     @if(session()->has('cart') && count(session()->get('cart')) > 0)
                                                         {{ number_format($subtotal, 2) }}
                                                     @else
                                                       BDT  0.00
                                                     @endif
-                                                </span>
-                                                <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
-                                            </div>
+                                                <a href="{{ route('order',$key) }}">Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></a></div>
                                         </button>
 
                                         </button>

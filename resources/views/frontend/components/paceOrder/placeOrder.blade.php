@@ -17,7 +17,7 @@
             <!-- Left Column - Booking Form -->
             <div class="col-md-6">
                 <!-- Booking Form -->
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="{{ route('pay.now',$devices->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <section class="order-form m-4">
                         <div class="container pt-4">
@@ -32,9 +32,9 @@
                                         <div class="col-md-6">
                                             <label class="order-form-label">Full Name</label>
                                             <div class="form-outline">
-                                                <input type="text" name="name" id="form1" class="form-control order-form-input" />
+                                                <input type="text" name="title" id="form1" class="form-control order-form-input" />
                                             </div>
-                                            @error('name')
+                                            @error('title')
                                             <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -68,18 +68,18 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    {{-- <div>
-                                        <input type="hidden" name="price" value="{{ $tours->price }}">
+                                    <div>
+                                        <input type="hidden" name="price" value="{{ $devices->price }}">
                                     </div>
                                     <div>
-                                        <input type="hidden" name="currency" value="{{ $tours->currency }}">
+                                        <input type="hidden" name="currency" value="{{ $devices->currency }}">
                                     </div>
                                     <div>
-                                        <input type="hidden" name="tour_id" value="{{ $tours->id }}">
+                                        <input type="hidden" name="device_id" value="{{ $devices->id }}">
                                     </div>
                                     <div>
                                         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                                    </div> --}}
+                                    </div>
 
                                     <div class="row mt-3 mx-4">
                                         <div class="col-12">

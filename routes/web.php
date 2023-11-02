@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
@@ -13,8 +14,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AddToCartController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
-use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,17 @@ use App\Http\Controllers\OrderController;
 
 //Frontend
 
+//SSlCommerz
+Route::post('/pay/{id}', [SslCommerzPaymentController::class, 'index'])->name('pay.now');
+
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+
+
 //Pages
 Route::get('/',[FrontendHomeController::class,'index'])->name('home');
 Route::get('/about',[AboutController::class,'index'])->name('about');
@@ -36,7 +48,8 @@ Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::get('/category',[CategoryController::class,'index'])->name('category');
 Route::get('/device-page',[DeviceController::class,'index'])->name('device.page');
 Route::get('/device-details/{id}',[DeviceController::class,'details'])->name('details');
-Route::get('/order/{id}',[OrderController::class,'placeOrder'])->name('order');
+
+
 //Auth
 Route::get('/login',[AuthController::class,'index'])->name('login');
 Route::post('/store',[AuthController::class,'store'])->name('store');
@@ -55,6 +68,10 @@ Route::get('/cart-item/delete/{id}',[AddToCartController::class,'cartItemDelete'
 
 //Middleware
 Route::group(['middleware'=>'auth'],function(){
+
+
+Route::get('/order/{id}',[OrderController::class,'placeOrder'])->name('order');
+Route::post('/buy',[OrderController::class,'store'])->name('buy');
 
 //Pages
 Route::get('/app',[HomeController::class,'index'])->name('app');
