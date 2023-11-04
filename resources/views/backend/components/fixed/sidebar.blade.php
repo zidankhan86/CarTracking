@@ -175,7 +175,7 @@
 
 
           <li class="nav-item ">
-            <a class="nav-link" href="#"  data-bs-auto-close="false" role="button" aria-expanded="false" >
+            <a class="nav-link" href="{{ route('order.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
 
               <span class="nav-link-title"> <i class="fas fa-shopping-cart"></i>
                 Order

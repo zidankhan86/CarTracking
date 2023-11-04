@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Device;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -91,5 +92,11 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function list(){
+        $order = Order::all();
+        Order::with('user')->where('name');
+        return view('backend.pages.orderList',compact('order'));
     }
 }

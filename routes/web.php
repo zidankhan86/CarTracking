@@ -73,6 +73,7 @@ Route::group(['middleware'=>'auth'],function(){
 
 Route::get('/order/{id}',[OrderController::class,'placeOrder'])->name('order');
 Route::post('/buy',[OrderController::class,'store'])->name('buy');
+Route::get('/list',[OrderController::class,'list'])->name('order.list');
 
 //Pages
 Route::get('/app',[HomeController::class,'index'])->name('app');
