@@ -74,17 +74,34 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit( $id)
     {
-        //
+        $cat = Category::find($id);
+        return view('backend.pages.categoryEdit',compact('cat'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request,  $id)
     {
-        //
+        $category = Category::find($id);
+
+        $image = null;
+
+            if ($request->hasFile('image')) {
+                $image = date('YmdHis') . '.' . $request->file('image')->getClientOriginalExtension();
+                $request->file('image')->storeAs('uploads', $image, 'public');
+            }
+            
+        $category->update([
+            "type_name" => $request->type_name,
+            "status" => $request->status,
+            "slug" => Str::slug($request['type_name']),
+            "image" => $image
+
+        ]);
+        return back()->with('success','updated');
     }
 
     /**
@@ -96,7 +113,8 @@ class CategoryController extends Controller
     }
     public function list()
     {
-       return view('backend.pages.categoryList');
+        $cat = Category::all();
+       return view('backend.pages.categoryList',compact('cat'));
     }
 
 

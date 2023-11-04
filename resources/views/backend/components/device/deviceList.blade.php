@@ -55,7 +55,7 @@
                           <a class="dropdown-item" href="{{ route('device.edit',$item->id) }}">
                             Edit
                           </a>
-                          <a class="dropdown-item" href="#">
+                          <a class="dropdown-item" href="#" onclick="return(confirm('Sorry this item can not be delete'))">
                            Delete
                           </a>
                         </div>

@@ -84,6 +84,10 @@ Route::post('/update-password/{id}',[ChangePasswordController::class,'update'])-
 Route::get('/user-list',[AuthController::class,'list'])->name('user.list');
 Route::get('/category-list',[CategoryController::class,'list'])->name('category.list');
 Route::get('/category-form',[CategoryController::class,'form'])->name('category.form');
+
+Route::get('/category-edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
+Route::post('/category-update/{id}',[CategoryController::class,'update'])->name('category.update');
+
 Route::get('/device-list',[DeviceController::class,'list'])->name('device.list');
 Route::get('/device-form',[DeviceController::class,'form'])->name('device.form');
 

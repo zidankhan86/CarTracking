@@ -20,26 +20,27 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach ($cat as $item)
+
+                @endforeach
                 <tr>
                     <tr>
-                        <td data-label="Name" >Test</td>
-                        <td data-label="Title" >Test </td>
+                        <td data-label="Name" >{{ $item->id  }}</td>
+                        <td data-label="Name" >{{ $item->type_name  }}</td>
 
                   <td>
                     <div class="btn-list flex-nowrap">
-                      <a href="#" class="btn">
-                        Edit
-                      </a>
+
                       <div class="dropdown">
                         <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
                           Actions
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
-                          <a class="dropdown-item" href="#">
-                            Action
+                          <a class="dropdown-item" href="{{ route('category.edit',$item->id) }}">
+                            Edit
                           </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
+                          <a class="dropdown-item" href="#" onclick="return(confirm('Sorry this item can not be delete'))">
+                           Delete
                           </a>
                         </div>
                       </div>
