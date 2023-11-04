@@ -79,18 +79,50 @@ class DeviceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Device $device)
+    public function edit( $id)
     {
-        //
+        $edit = Device::find($id);
+        $devices = Category::all();
+        return view('backend.pages.deviceEdit',compact('edit','devices'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Device $device)
+    public function update(Request $request,$id)
     {
-        //
-    }
+        //dd($request->all());
+        // Load the existing device (assuming you have a device ID)
+        $device = Device::find($id);
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('uploads', $imageName, 'public');
+        } else {
+            $imageName = null;
+        }
+
+        // Update device fields
+        $device->update([
+
+            'title' => $request->input('title'),
+            'price' => $request->input('price'),
+            'category_id' => $request->input('category_id'),
+            'monthly_charge' => $request->input('monthly_charge'),
+            'image' => $imageName,
+            'status' => $request->input('status'),
+            'description' => $request->input('description'),
+            'features' => json_encode($request->input('features'))
+
+        ]);
+
+        return back()->with('success', 'Updated');
+
+            }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -102,7 +134,9 @@ class DeviceController extends Controller
 
     public function list()
     {
-        return view('backend.pages.deviceList');
+        $device= Device::all();
+        Category::with('category')->where('type_name');
+        return view('backend.pages.deviceList',compact('device'));
     }
 
     public function FeaturesForm()

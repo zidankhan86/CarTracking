@@ -1,5 +1,13 @@
 
 
+<style>
+    img{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+</style>
+
 <div class="container">
     <br><h2 style="text-align: center">Device Table</h2>
     <div style="text-align: right">
@@ -12,43 +20,50 @@
     class="table table-vcenter table-mobile-md card-table">
               <thead>
                 <tr>
-                    <th>Title</th>
-                  <th>Category Type</th>
-                  <th>Category Type</th>
-                  <th>Category Type</th>
-                  <th>Category Type</th>
-                  <th>Category Type</th>
+                    <th>id</th>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Status</th>
+
                   <th class="w-1">Action</th>
                 </tr>
               </thead>
               <tbody>
+
+                @foreach ($device as $item)
+
+
                 <tr>
+
                     <tr>
-                        <td data-label="Name" >Test</td>
-                        <td data-label="Title" >Test </td>
+                        <td data-label="Name" >{{ $item->id }}</td>
+                        <td data-label="Title" >
+                            <img src="{{ url('/uploads/',$item->image) }}">
+                        </td>
+                        <td data-label="Name" >{{ $item->title }}</td>
+                        <td data-label="Name" >{{ $item->category->type_name }}</td>
+                        <td data-label="Name" >{{ $item->status == 1? 'Active':'Inactive' }}</td>
 
                   <td>
                     <div class="btn-list flex-nowrap">
-                      <a href="#" class="btn">
-                        Edit
-                      </a>
+
                       <div class="dropdown">
                         <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
                           Actions
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
-                          <a class="dropdown-item" href="#">
-                            Action
+                          <a class="dropdown-item" href="{{ route('device.edit',$item->id) }}">
+                            Edit
                           </a>
                           <a class="dropdown-item" href="#">
-                            Another action
+                           Delete
                           </a>
                         </div>
                       </div>
                     </div>
                   </td>
                 </tr>
-
+                @endforeach
 
 
               </tbody>

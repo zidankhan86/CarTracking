@@ -86,6 +86,9 @@ Route::get('/category-list',[CategoryController::class,'list'])->name('category.
 Route::get('/category-form',[CategoryController::class,'form'])->name('category.form');
 Route::get('/device-list',[DeviceController::class,'list'])->name('device.list');
 Route::get('/device-form',[DeviceController::class,'form'])->name('device.form');
+
+Route::get('/device-edit/{id}',[DeviceController::class,'edit'])->name('device.edit');
+Route::post('/device-update{id}',[DeviceController::class,'update'])->name('device.update');
 //profile
 Route::get('/profile',[ProfileController::class,'index'])->name('profile');
 //post
