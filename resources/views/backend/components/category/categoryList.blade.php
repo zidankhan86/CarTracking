@@ -9,7 +9,7 @@
         <div class="card">
           <div class="table-responsive">
             <table
-    class="table table-vcenter table-mobile-md card-table">
+                class="table table-vcenter table-mobile-md card-table">
               <thead>
                 <tr>
                     <th>Title</th>
@@ -22,7 +22,7 @@
               <tbody>
                 @foreach ($cat as $item)
 
-                @endforeach
+
                 <tr>
                     <tr>
                         <td data-label="Name" >{{ $item->id  }}</td>
@@ -48,7 +48,7 @@
                   </td>
                 </tr>
 
-
+                @endforeach
 
               </tbody>
             </table>

@@ -22,7 +22,7 @@
                                             <tr>
                                                 <th class="shoping__product">Products</th>
                                                 <th>Price</th>
-                                                <th>Quantity</th>
+
                                                 <th>Total</th>
                                                 <th></th>
                                             </tr>
@@ -47,13 +47,7 @@
                                                 <td class="shoping__cart__price">
                                                     BDT {{ $data['price'] }}
                                                 </td>
-                                                <td class="shoping__cart__quantity">
-                                                    <div class="quantity">
-                                                        <div class="pro-qty">
-                                                            <input type="number" value="{{ $data['quantity'] }}" disabled>
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                                
                                                 <td class="shoping__cart__total">
                                                     BDT {{ $data['subtotal'] }}
                                                 </td>

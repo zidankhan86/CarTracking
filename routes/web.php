@@ -7,6 +7,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
@@ -51,6 +52,7 @@ Route::get('/device-page',[DeviceController::class,'index'])->name('device.page'
 Route::get('/device-details/{id}',[DeviceController::class,'details'])->name('details');
 Route::get('/device-latest',[DeviceController::class,'latest'])->name('latest');
 Route::get('/user-profile',[TestController::class,'Profile'])->name('user.profile');
+
 //Auth
 Route::get('/login',[AuthController::class,'index'])->name('login');
 Route::post('/store',[AuthController::class,'store'])->name('store');
@@ -100,5 +102,8 @@ Route::get('/profile',[ProfileController::class,'index'])->name('profile');
 Route::post('/registration/update{id}',[RegistrationController::class,'update'])->name('registration.update');
 Route::post('/category-store',[CategoryController::class,'store'])->name('category.store');
 Route::post('/device-store',[DeviceController::class,'store'])->name('device.store');
+
+Route::get('/report',[ReportController::class,'report'])->name('report');
+Route::get('/report/search',[ReportController::class,'reportSearch'])->name('order.report.search');
 
 });
