@@ -15,4 +15,12 @@ class invoiceController extends Controller
         return view('backend.pages.invoic',compact('invoice'));
     }
 
+    public function status($id){
+        $update = Order::find($id);
+        $update->update([
+            'status'=>'delivered',
+        ]);
+        return back()->with('success','status updated');
+    }
+
 }

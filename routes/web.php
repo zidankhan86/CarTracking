@@ -78,7 +78,7 @@ Route::get('/order/{id}',[OrderController::class,'placeOrder'])->name('order');
 Route::post('/buy',[OrderController::class,'store'])->name('buy');
 Route::get('/list',[OrderController::class,'list'])->name('order.list');
 Route::get('/invoice/{id}',[invoiceController::class,'invoice'])->name('invoice');
-
+Route::get('/status/{id}',[invoiceController::class,'status'])->name('status');
 //Pages
 Route::get('/app',[HomeController::class,'index'])->name('app');
 Route::get('/logout',[TestController::class,'logout'])->name('logout');

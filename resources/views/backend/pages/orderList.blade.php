@@ -22,6 +22,8 @@
                   <th class="w-1">Address</th>
                   <th class="w-1">Status</th>
                   <th class="w-1">Invoice</th>
+
+                  <th class="w-1">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -63,6 +65,18 @@
 
                     </div>
                   </td>
+
+                  <td>
+                    <div class="btn-list flex-nowrap">
+                        @if ($item->status == 'Processing')
+                            <a href="{{ route('status', $item->id) }}" class="btn btn-success">Delivered</a>
+                        @else
+                            <p>Delivered</p>
+                        @endif
+                    </div>
+                </td>
+
+
                 </tr>
                 @endforeach
 
