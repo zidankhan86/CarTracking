@@ -17,6 +17,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
+use App\Http\Controllers\invoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,7 @@ Route::group(['middleware'=>'auth'],function(){
 Route::get('/order/{id}',[OrderController::class,'placeOrder'])->name('order');
 Route::post('/buy',[OrderController::class,'store'])->name('buy');
 Route::get('/list',[OrderController::class,'list'])->name('order.list');
+Route::get('/invoice/{id}',[invoiceController::class,'invoice'])->name('invoice');
 
 //Pages
 Route::get('/app',[HomeController::class,'index'])->name('app');

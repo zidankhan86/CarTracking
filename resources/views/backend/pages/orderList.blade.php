@@ -57,7 +57,7 @@
 
                   <td>
                     <div class="btn-list flex-nowrap">
-                      <a href="#" class="btn">
+                      <a href="{{ route('invoice',$item->id) }}" class="btn">
                         INV
                       </a>
 
