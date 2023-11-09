@@ -18,7 +18,7 @@
                   <th>User Name</th>
                   <th class="w-1">Email</th>
                   <th class="w-1">Tran id</th>
-                  <th class="w-1">Ammount</th>
+                  <th class="w-1">Amount</th>
                   <th class="w-1">Address</th>
                   <th class="w-1">Status</th>
                   <th class="w-1">Invoice</th>
@@ -34,7 +34,7 @@
                     {{ $item->id }}
                   </td>
                   <td data-label="Title" >
-                    {{ $item->title }}
+                    {{ $item->device->title }}
                   </td>
                   <td class="text-muted" data-label="Role" >
                     {{ $item->user->name }}

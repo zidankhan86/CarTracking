@@ -97,6 +97,7 @@ class OrderController extends Controller
     public function list(){
         $order = Order::all();
         Order::with('user')->where('name');
+        Device::with('device')->where('title');
         return view('backend.pages.orderList',compact('order'));
     }
 }
