@@ -59,7 +59,7 @@
             <td>{{ $order->address }}</td>
             <td>{{ $order->phone }}</td>
             <td>{{ $order->email }}</td>
-            <td class="text-danger">Processing</td>
+            <td class="text-danger">{{ $order->status }}</td>
 
         </tr>
         @endforeach
