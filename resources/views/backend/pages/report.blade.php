@@ -55,7 +55,6 @@
             <td>{{ $order->title }}</td>
             <td>{{ $order->amount }} Tk.</td>
             <td>{{ $order->transaction_id }}</td>
-
             <td>{{ $order->address }}</td>
             <td>{{ $order->phone }}</td>
             <td>{{ $order->email }}</td>

@@ -47,6 +47,27 @@
                         <label class="form-label">Phone</label>
                         <input type="tel" class="form-control" name="phone" placeholder="Enter Phone">
                     </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Driving licence</label>
+                        <input type="number" class="form-control" name="license" placeholder="000777">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Car number</label>
+                        <input type="text" class="form-control" name="car_number" placeholder="D1000">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Experience</label>
+                        <input type="text" class="form-control" name="experience" placeholder="Enter experience">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Voter card</label>
+                        <input type="number" class="form-control" name="voter_no" placeholder="001404424">
+                    </div>
+
                     <div class="mb-3">
                         <label class="form-label">Select Image</label>
                         <input type="file" class="form-control" name="image">
@@ -84,7 +105,7 @@
             </form>
         </div>
         <div class="text-center text-muted mt-3">
-            Already have an account? <a href="./sign-in.html" tabindex="-1">Sign in</a>
+            Already have an account? <a href="{{ route('login') }}" tabindex="-1">Sign in</a>
         </div>
     </div>
 </div>

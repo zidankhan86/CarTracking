@@ -59,7 +59,11 @@ class RegistrationController extends Controller
                 "name"     =>$request->name,
                 "password" =>bcrypt($request->password),
                 "role"     =>'customer',
-                "image"    =>$imageName
+                "image"    =>$imageName,
+                "license"  =>$request->license,
+                "car_number"=>$request->car_number,
+                "experience"=>$request->experience,
+                "voter_no" =>$request->voter_no
 
            ]);
 

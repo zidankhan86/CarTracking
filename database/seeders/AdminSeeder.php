@@ -19,7 +19,12 @@ class AdminSeeder extends Seeder
             "phone"=>"01711111111",
             "email"=>"admin@gmail.com",
             "password"=>bcrypt('123456'),
-            "role"=>"admin"
+            "role"=>"admin",
+            "license"=>"0014787547",
+            "car_number"=>"F-140145",
+            "experience"=>"2 years",
+            "voter_no"=>"1231213121",
+
 
            ]);
     }
