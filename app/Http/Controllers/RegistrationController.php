@@ -38,7 +38,7 @@ class RegistrationController extends Controller
                 'regex:/^(?:\+?88|0088)?01[13-9]\d{8}$/'
                 ],
                 'name' => 'required',
-                'password' => 'required|min:5',
+                'password' => 'required|min:6',
                 ], [
                 'phone.regex' => 'The phone number should be a valid number.'
                 ]);

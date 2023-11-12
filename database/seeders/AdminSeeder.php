@@ -25,7 +25,6 @@ class AdminSeeder extends Seeder
             "experience"=>"2 years",
             "voter_no"=>"1231213121",
 
-
            ]);
     }
 }

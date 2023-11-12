@@ -35,11 +35,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        try {
+
             $request->validate([
-                'type_name' => 'required|string',
-                'status' => 'required',
-                'image' => 'nullable|image' // Add validation for image file
+                'type_name'  => 'required',
+                'status'     => 'required',
+                'image'      => 'nullable'
             ]);
 
             $image = null;
@@ -52,14 +52,11 @@ class CategoryController extends Controller
             Category::create([
                 "type_name" => $request->type_name,
                 "status" => $request->status,
-                "slug" => Str::slug($request['type_name']),
                 "image" => $image
             ]);
 
             return back()->withSuccess(['success' => 'Category Create Success!']);
-        } catch (\Exception $e) {
-            return back()->withErrors(['error' => 'Failed: ' . $e->getMessage()]);
-        }
+
     }
 
 
@@ -93,7 +90,7 @@ class CategoryController extends Controller
                 $image = date('YmdHis') . '.' . $request->file('image')->getClientOriginalExtension();
                 $request->file('image')->storeAs('uploads', $image, 'public');
             }
-            
+
         $category->update([
             "type_name" => $request->type_name,
             "status" => $request->status,

@@ -9,9 +9,9 @@
                         <div class="mb-3">
                             <label class="form-label">Type Name</label>
                             <input type="text" name="type_name" class="form-control" placeholder="Type Name">
-                            @if ($errors->has('type_name'))
-                                <p class="text-danger">{{ $errors->first('type_name') }}</p>
-                            @endif
+                            @error('type_name')
+                            <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="mb-3">
