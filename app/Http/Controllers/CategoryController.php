@@ -37,9 +37,9 @@ class CategoryController extends Controller
     {
 
             $request->validate([
-                'type_name'  => 'required',
-                'status'     => 'required',
-                'image'      => 'nullable'
+                'type_name' => 'required|unique:categories',
+                'status' => 'required',
+                'image' => 'nullable'
             ]);
 
             $image = null;
