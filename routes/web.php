@@ -57,7 +57,7 @@ Route::get('/user-profile',[TestController::class,'Profile'])->name('user.profil
 //Auth
 Route::get('/login',[AuthController::class,'index'])->name('login');
 Route::post('/store',[AuthController::class,'store'])->name('store');
-
+Route::get('/logout-user',[TestController::class,'logoutUser'])->name('logout.user');
 //Register
 Route::get('/registration',[RegistrationController::class,'index'])->name('registration');
 Route::post('/registration/store',[RegistrationController::class,'store'])->name('registration.store');

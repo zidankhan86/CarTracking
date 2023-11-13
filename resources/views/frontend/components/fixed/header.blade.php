@@ -23,7 +23,7 @@
                         @auth
                         @if (auth()->user()->role == 'customer')
 
-                        <li><a href="{{ route('logout') }}" style="color: red">Logout</a></li>
+                        <li><a href="{{ route('logout.user') }}" style="color: red">Logout</a></li>
                         <li><a href="{{ route('user.profile') }}">{{ auth()->user()->name }}</a></li>
 
                         @endauth

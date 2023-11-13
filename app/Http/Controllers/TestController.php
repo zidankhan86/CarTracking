@@ -19,4 +19,11 @@ class TestController extends Controller
     public function Profile(){
         return view('frontend\pages\profile');
     }
+
+
+    public function logoutUser(){
+        Auth::logout();
+        return redirect()->route('home')->withSuccess('Logout Success');
+     }
+
 }
