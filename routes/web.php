@@ -71,7 +71,7 @@ Route::get('/cart-item/delete/{id}',[AddToCartController::class,'cartItemDelete'
 //Backend
 
 //Middleware
-Route::group(['middleware'=>'auth'],function(){
+Route::group(['middleware' => ['auth', 'admin']],function(){
 
 
 Route::get('/order/{id}',[OrderController::class,'placeOrder'])->name('order');
