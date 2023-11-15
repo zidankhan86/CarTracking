@@ -74,11 +74,13 @@ Route::get('/view-cart',[AddToCartController::class,'viewCart'])->name('view.car
 Route::get('/clear-cart',[AddToCartController::class,'clearCart'])->name('cart.clear');
 Route::get('/cart-item/delete/{id}',[AddToCartController::class,'cartItemDelete'])->name('cart.item.delete');
 
+Route::get('/order/{id}',[OrderController::class,'placeOrder'])->name('order');
+Route::post('/buy',[OrderController::class,'store'])->name('buy');
 //Middleware
 Route::group(['middleware' => ['auth', 'admin']],function(){
 
-Route::get('/order/{id}',[OrderController::class,'placeOrder'])->name('order');
-Route::post('/buy',[OrderController::class,'store'])->name('buy');
+
+
 Route::get('/list',[OrderController::class,'list'])->name('order.list');
 Route::get('/invoice/{id}',[invoiceController::class,'invoice'])->name('invoice');
 Route::get('/status/{id}',[invoiceController::class,'status'])->name('status');
