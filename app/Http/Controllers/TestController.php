@@ -9,6 +9,7 @@ class TestController extends Controller
 {
     public function logout(){
        Auth::logout();
+       session()->flush();
        return redirect()->route('home')->withSuccess('Logout Success');
     }
 
@@ -23,6 +24,7 @@ class TestController extends Controller
 
     public function logoutUser(){
         Auth::logout();
+        session()->flush();
         return redirect()->route('home')->withSuccess('Logout Success');
      }
 

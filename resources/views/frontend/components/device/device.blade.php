@@ -26,6 +26,7 @@
 
                     <div>
                         <a href="{{ route('add.to.cart',$item->id) }}" class="btn btn-dark">Add to cart</a>
+                       
                         <a href="{{ route('details',$item->id) }}" class="btn btn-info">Details</a>
                     </div>
                 </div>

@@ -20,12 +20,18 @@
               <label class="form-label">Title</label>
               <input type="text" name="title" class="form-control"  placeholder="Title">
             </div>
+            @error('title')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
           </div>
           <div class="col-sm-6 col-md-3">
             <div class="mb-3">
                 <label class="form-label">Device Price</label>
-                <input type="text" name="price" class="form-control">
+                <input type="number" name="price" class="form-control">
               </div>
+              @error('price')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
           </div>
           <div class="col-sm-6 col-md-4">
             <div class="mb-3">
@@ -45,12 +51,18 @@
               <label class="form-label">Monthly Service Charge </label>
               <input type="text" name="monthly_charge" class="form-control" placeholder="200">
             </div>
+            @error('monthly_charge')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
           </div>
           <div class="col-sm-6 col-md-6">
             <div class="mb-3">
               <label class="form-label">Choose Thumbnail</label>
               <input type="file" name="image" class="form-control">
             </div>
+            @error('image')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
           </div>
 
           <div class="col-md-12">
@@ -87,7 +99,9 @@
         <div class="d-none">
             <textarea name="description" id="description" rows="5" class="form-control"></textarea>
         </div>
-
+        @error('description')
+        <p class="text-danger">{{ $message }}</p>
+        @enderror
 
         </div>
       </div><br>

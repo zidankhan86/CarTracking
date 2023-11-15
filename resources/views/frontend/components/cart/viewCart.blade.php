@@ -47,7 +47,7 @@
                                                 <td class="shoping__cart__price">
                                                     BDT {{ $data['price'] }}
                                                 </td>
-                                                
+
                                                 <td class="shoping__cart__total">
                                                     BDT {{ $data['subtotal'] }}
                                                 </td>

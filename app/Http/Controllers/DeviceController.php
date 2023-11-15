@@ -36,7 +36,7 @@ class DeviceController extends Controller
             'price' => 'required|numeric',
             'category_id' => 'required|exists:categories,id',
             'monthly_charge' => 'required|numeric',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Modify file validation as needed
+            'image' => 'required',
             'status' => 'required|in:0,1',
             'description' => 'required|string',
             'features' => 'array|nullable', // Allow an array of features

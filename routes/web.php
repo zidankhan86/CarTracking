@@ -62,17 +62,20 @@ Route::get('/logout-user',[TestController::class,'logoutUser'])->name('logout.us
 Route::get('/registration',[RegistrationController::class,'index'])->name('registration');
 Route::post('/registration/store',[RegistrationController::class,'store'])->name('registration.store');
 
+
+
+//Backend
+
+Route::group(['middleware' => 'auth'],function(){
+
 //AddToCard
 Route::get('add-to-cart/{id}',[AddToCartController::class,'addToCart'])->name('add.to.cart');
 Route::get('/view-cart',[AddToCartController::class,'viewCart'])->name('view.cart');
 Route::get('/clear-cart',[AddToCartController::class,'clearCart'])->name('cart.clear');
 Route::get('/cart-item/delete/{id}',[AddToCartController::class,'cartItemDelete'])->name('cart.item.delete');
 
-//Backend
-
 //Middleware
 Route::group(['middleware' => ['auth', 'admin']],function(){
-
 
 Route::get('/order/{id}',[OrderController::class,'placeOrder'])->name('order');
 Route::post('/buy',[OrderController::class,'store'])->name('buy');
@@ -108,4 +111,5 @@ Route::post('/device-store',[DeviceController::class,'store'])->name('device.sto
 Route::get('/report',[ReportController::class,'report'])->name('report');
 Route::get('/report/search',[ReportController::class,'reportSearch'])->name('order.report.search');
 
+});
 });
