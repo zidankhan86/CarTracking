@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\AboutController;
@@ -70,21 +71,14 @@ Route::post('/registration/store',[RegistrationController::class,'store'])->name
 //Backend
 Route::group(['middleware' => 'auth'],function(){
 
-//Brand
- Route::get('/add/brand/form',[BrandController::class,'brandForm'])->name('brand.form');
- Route::post('/add/brand/store',[BrandController::class,'brandStore'])->name('brand.store');
- Route::get('/brand/table',[BrandController::class,'brandTable'])->name('brand.table');
- Route::get('/brand/edit/{id}',[BrandController::class,'brandEdit'])->name('brand.edit');
- Route::get('/brand/delete/{id}',[BrandController::class,'brandDelete'])->name('brand.delete');
+    //booking
+    Route::get('/booking-form',[BookController::class,'booking'])->name('booking.form');
+    Route::post('/booking-store',[BookController::class,'bookingStore'])->name('booking.store');
+    Route::get('/booking/list',[BookController::class,'bookingList'])->name('bookings.lists');
+    Route::get('/approve/{id}',[BookController::class,'approve'])->name('assigned');
+    Route::get('/confirmed/{id}',[BookController::class,'Confirmed'])->name('Confirmed');
 
- //Car Rent
- Route::get('/car/rent/form',[CarController::class,'addCar'])->name('car.form');
- Route::post('/car/rent/form',[CarController::class,'CarStore'])->name('car.store');
- Route::get('/car/rent/table',[CarController::class,'CarTable'])->name('car.table');
- Route::get('/car/rent/view/{id}',[CarController::class,'CarView'])->name('car.view');
- Route::get('/car/rent/edit/{id}',[CarController::class,'CarEdit'])->name('car.edit');
- Route::post('/car/rent/update/{id}',[CarController::class,'CarUpdate'])->name('car.update');
- Route::get('/car/rent/delete/{id}',[CarController::class,'Cardelete'])->name('car.delete');
+
 
 //AddToCard
 Route::get('add-to-cart/{id}',[AddToCartController::class,'addToCart'])->name('add.to.cart');
@@ -130,6 +124,21 @@ Route::post('/device-store',[DeviceController::class,'store'])->name('device.sto
 
 Route::get('/report',[ReportController::class,'report'])->name('report');
 Route::get('/report/search',[ReportController::class,'reportSearch'])->name('order.report.search');
+
+//Brand
+Route::get('/add/brand/form',[BrandController::class,'brandForm'])->name('brand.form');
+Route::post('/add/brand/store',[BrandController::class,'brandStore'])->name('brand.store');
+Route::get('/brand/table',[BrandController::class,'brandTable'])->name('brand.table');
+Route::get('/brand/edit/{id}',[BrandController::class,'brandEdit'])->name('brand.edit');
+Route::get('/brand/delete/{id}',[BrandController::class,'brandDelete'])->name('brand.delete');
+
+ //Car Rent
+ Route::get('/car/rent/form',[CarController::class,'addCar'])->name('car.form');
+ Route::post('/car/rent/form',[CarController::class,'CarStore'])->name('car.store');
+ Route::get('/car/rent/table',[CarController::class,'CarTable'])->name('car.table');
+ Route::get('/car/rent/edit/{id}',[CarController::class,'CarEdit'])->name('car.edit');
+ Route::post('/car/rent/update/{id}',[CarController::class,'CarUpdate'])->name('car.update');
+ Route::get('/car/rent/delete/{id}',[CarController::class,'Cardelete'])->name('car.delete');
 
 });
 });

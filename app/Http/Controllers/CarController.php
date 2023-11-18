@@ -23,7 +23,7 @@ class CarController extends Controller
             'fuel_type' => 'required|string|max:255',
             'fee' => 'required|numeric|min:0',
             'sit' => 'required|integer|min:2|max:16',
-            'stock' => 'required|integer|min:0|max:5',
+            'stock' => 'required|integer|min:0|max:100',
             'description' => 'required|string',
         ]);
 

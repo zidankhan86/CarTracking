@@ -37,7 +37,7 @@
 
                 </div>
                 <div class="text-center">
-                    <a href="{{ route('order',$details->id) }}" class="btn btn-danger">Rent Now</a>
+                    <a href="{{ route('booking.form',$details->id) }}" class="btn btn-danger">Rent Now</a>
                 </div>
 
             </div>
