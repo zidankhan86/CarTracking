@@ -5,10 +5,12 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\invoiceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
@@ -17,7 +19,6 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
-use App\Http\Controllers\invoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,8 +66,15 @@ Route::post('/registration/store',[RegistrationController::class,'store'])->name
 
 
 //Backend
-
 Route::group(['middleware' => 'auth'],function(){
+
+    //Brand
+ Route::get('/add/brand/form',[BrandController::class,'brandForm'])->name('brand.form');
+ Route::post('/add/brand/store',[BrandController::class,'brandStore'])->name('brand.store');
+ Route::get('/brand/table',[BrandController::class,'brandTable'])->name('brand.table');
+ Route::get('/brand/edit/{id}',[BrandController::class,'brandEdit'])->name('brand.edit');
+ Route::get('/brand/delete/{id}',[BrandController::class,'brandDelete'])->name('brand.delete');
+
 
 //AddToCard
 Route::get('add-to-cart/{id}',[AddToCartController::class,'addToCart'])->name('add.to.cart');
