@@ -121,4 +121,10 @@ class CarController extends Controller
         Car::with('car')->where('brand_name');
         return view('frontend.pages.car',compact('cars'));
     }
+
+    public function carDetails($id){
+        $details = Car::find($id);
+        Car::with('car')->where('brand_name');
+        return view('frontend.pages.carDetails',compact('details'));
+    }
 }

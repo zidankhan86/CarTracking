@@ -56,7 +56,7 @@ Route::get('/device-latest',[DeviceController::class,'latest'])->name('latest');
 Route::get('/user-profile',[TestController::class,'Profile'])->name('user.profile');
 
 Route::get('/car/',[CarController::class,'car'])->name('car');
-
+Route::get('/car/details/{id}',[CarController::class,'carDetails'])->name('car.details');
 //Auth
 Route::get('/login',[AuthController::class,'index'])->name('login');
 Route::post('/store',[AuthController::class,'store'])->name('store');

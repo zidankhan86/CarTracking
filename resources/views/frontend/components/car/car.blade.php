@@ -29,8 +29,8 @@
                             <h4>BDT {{$car->fee}}/day</h4>
                             <h6>Oil: {{$car->fuel_type}}</h6>
                             <h6>Sit: {{$car->sit}}</h6>
-                            <h6>Availeable: {{$car->stock}} Cars</h6>
-                            {{-- <a href="{{ route('details',$car->id) }}">Read more</a> --}}
+                            <h6>Availeable: {{$car->stock}} Cars</h6><br>
+                            <a href="{{ route('car.details',$car->id) }}">Details</a>
                         </div>
                     </div>
                 </div>
