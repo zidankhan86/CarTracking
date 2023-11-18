@@ -78,7 +78,7 @@
                     </div>
                     <div class="col-12">
                         <div class="form-outline">
-                            <input type="date" id="form4" name="from_date" class="form-control order-form-input" />
+                            <input type="date" id="form4" type="date" name="from_date" id="form4" min="<?php echo date('Y-m-d'); ?>"  class="form-control order-form-input" />
                         </div>
                         @error('from_date')
 
@@ -161,3 +161,8 @@
 
 
   @endsection
+
+
+  <script>
+        $( "#form4" ).datepicker({ minDate: 0 });
+  </script>

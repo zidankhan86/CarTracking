@@ -4,7 +4,7 @@
 
 <style>
     .container {
-        max-width: 1000px; 
+        max-width: 1000px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -50,7 +50,7 @@
 
         <div class="form-group">
             <label for="exampleInputPassword1">Rent Fee</label>
-            <input type="number" class="form-control" name="fee" id="exampleInputPassword1" placeholder="Brand Type Name">
+            <input type="number" class="form-control" name="fee" id="exampleInputPassword1" placeholder="Fee ">
             <div>@error('fee')
                 <p class="text-danger">{{ $message }}</p>
             @enderror</div>
@@ -66,7 +66,7 @@
 
         <div class="form-group">
             <label for="">Available Cars</label>
-            <input type="number" class="form-control" name="stock" id="" placeholder="Sit">
+            <input type="number" class="form-control" name="stock" id="" placeholder="2">
             <div>@error('stock')
                 <p class="text-danger">{{ $message }}</p>
             @enderror</div>

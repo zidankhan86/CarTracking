@@ -229,11 +229,11 @@
                 Manage Car
               </span>
             </a>
-          </li>
+          </li> 
 
 
           <li class="nav-item ">
-            <a class="nav-link" href=""  data-bs-auto-close="false" role="button" aria-expanded="false" >
+            <a class="nav-link" href="{{ route('bookings.lists') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
 
               <span class="nav-link-title"> <i class="fas fa-book"></i>
                 Booking

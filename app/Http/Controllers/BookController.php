@@ -61,7 +61,7 @@ if ($validator->fails()) {
     public function bookingList(){
 
         $userBooking = Book::all();
-        return view('backend.pages.order.orderlist',compact('userBooking'));
+        return view('backend.pages.bookingList',compact('userBooking'));
     }
 
     public function approve($id)
