@@ -36,7 +36,6 @@ use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
 
 //SSlCommerz
 Route::post('/pay/{id}', [SslCommerzPaymentController::class, 'index'])->name('pay.now');
-
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
 Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
 Route::post('/success', [SslCommerzPaymentController::class, 'success']);
@@ -55,6 +54,8 @@ Route::get('/device-page',[DeviceController::class,'index'])->name('device.page'
 Route::get('/device-details/{id}',[DeviceController::class,'details'])->name('details');
 Route::get('/device-latest',[DeviceController::class,'latest'])->name('latest');
 Route::get('/user-profile',[TestController::class,'Profile'])->name('user.profile');
+
+Route::get('/car/',[CarController::class,'car'])->name('car');
 
 //Auth
 Route::get('/login',[AuthController::class,'index'])->name('login');

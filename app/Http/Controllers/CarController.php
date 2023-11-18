@@ -115,4 +115,10 @@ class CarController extends Controller
 
         return back()->with('success','Car Deleted');
     }
+
+    public function car(){
+        $cars = Car::simplePaginate(6);
+        Car::with('car')->where('brand_name');
+        return view('frontend.pages.car',compact('cars'));
+    }
 }
