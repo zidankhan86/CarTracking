@@ -2,6 +2,10 @@
 @extends('backend\layout\app')
 @section('content')
 
+<div class="container">
+    <div class="container">
+        <div class="container">
+            <div class="container">
 <style>
     .custom-textarea {
       height: 100px;
@@ -83,5 +87,9 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+</div>
+</div>
+</div>
+</div>
 
   @endsection
