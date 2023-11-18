@@ -42,7 +42,7 @@ return view('backend.pages.brandList',compact('brands'));
 public function brandEdit($id){
 
 $brands = Brand::find($id);
-return view('backend.pages.brand.brandEdit',compact('brands'));
+return view('backend.pages.brandEdit',compact('brands'));
 }
 
 public function brandDelete($id){
