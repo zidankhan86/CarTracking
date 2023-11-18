@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\Models\Car;
 use App\Models\Device;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         $devices =Device::all();
-        return view('frontend.pages.home',compact('devices'));
+        $cars = Car::simplePaginate(6);
+        Car::with('car')->where('brand_name');
+        return view('frontend.pages.home',compact('devices','cars'));
     }
 
     /**

@@ -6,7 +6,7 @@
                 <div class="col-lg-9 col-md-8 col-sm-6">
                     <div class="section-title">
                         <span>Choose your best deal</span>
-                        <h2>Rent Car</h2>
+                        <h2>Rent a Car</h2>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
