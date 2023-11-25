@@ -208,7 +208,7 @@
             <p class="nav-link"  data-bs-auto-close="false" role="button" aria-expanded="false" >
 
               <strong class="nav-link-title"> <i class="fas fa-car"></i>
-                Car Rent
+                Package
                 <i class="fas fa-car"></i></strong>
             </p>
           </li>
@@ -217,7 +217,7 @@
             <a class="nav-link" href="{{ route('brand.table') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
 
               <span class="nav-link-title"> <i class="fas fa-tag"></i>
-                Band
+                Package Type
               </span>
             </a>
           </li>
@@ -229,7 +229,7 @@
                 Manage Car
               </span>
             </a>
-          </li> 
+          </li>
 
 
           <li class="nav-item ">

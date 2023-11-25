@@ -13,7 +13,7 @@
                         <h2>{{ $details->car_name }}</h2>
                         <img src="{{ url('/uploads/',$details->image) }}" alt="">
                         <p>Car: {!! $details->car_name !!}</p>
-                        <p>Brand: {!! $details->car->brand_name !!}</p>
+
                         <strong>BDT {!! $details->fee !!}/day</strong>
                     </div>
 
@@ -24,7 +24,7 @@
                     <div class="blog__item__quote">
                         <h2>Details</h2><br>
                         <p>Car: {!! $details->car_name !!}</p>
-                        <p>Brand: {!! $details->car->brand_name !!}</p>
+
                         <strong>BDT {!! $details->fee !!}/day</strong>
                         <p>{!! $details->description !!}</p>
 

@@ -19,8 +19,8 @@
                         </li>
                         <li><a href="{{ route('device.page') }}">Product</a></li>
 
-                        <li><a href="{{ route('car') }}">Cars</a></li>
-                        
+                        <li><a href="{{ route('car') }}">Package</a></li>
+
                         <li><a href="{{ route('about') }}">About</a></li>
 
 

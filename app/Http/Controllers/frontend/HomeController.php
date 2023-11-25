@@ -6,6 +6,7 @@ use App\Models\Car;
 use App\Models\Device;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 
 class HomeController extends Controller
 {
@@ -15,8 +16,10 @@ class HomeController extends Controller
     public function index()
     {
         $devices =Device::all();
-        $cars = Car::simplePaginate(6);
-        Car::with('car')->where('brand_name');
+        $cars = Car::with('brands')->simplePaginate(6);
+       // dd($cars);
+
+       Brand::all();
         return view('frontend.pages.home',compact('devices','cars'));
     }
 

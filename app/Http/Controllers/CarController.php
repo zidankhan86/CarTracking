@@ -118,13 +118,15 @@ class CarController extends Controller
 
     public function car(){
         $cars = Car::simplePaginate(6);
-        Car::with('car')->where('brand_name');
+
+        Car::with('car')->where('brand_id');
+
         return view('frontend.pages.car',compact('cars'));
     }
 
     public function carDetails($id){
         $details = Car::find($id);
-        Car::with('car')->where('brand_name');
-        return view('frontend.pages.carDetails',compact('details'));
+        $cars = Car::with('brand')->simplePaginate(6);
+        return view('frontend.pages.carDetails',compact('details','cars'));
     }
 }

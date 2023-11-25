@@ -26,7 +26,7 @@ Brand::create([
     "brand_type" =>$request->brand_type,
 ]);
 
-return redirect()->back()->with('success','Brand added');
+return redirect()->back()->with('success','package added');
 
 }
 
